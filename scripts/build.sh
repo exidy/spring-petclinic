@@ -4,7 +4,7 @@ BUILD_DIR=$(pwd)
 
 echo ":s3: Seeding cache"
 
-mkdir -f ${BUILD_DIR}/cache
+mkdir -p ${BUILD_DIR}/cache
 aws s3 sync s3://dius-dev-build-cache/${BUILDKITE_PIPELINE_SLUG}/caches ${BUILD_DIR}/cache
 
 echo ":hammer: Building app"
