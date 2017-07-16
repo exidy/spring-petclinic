@@ -4,3 +4,5 @@ steps:
     artifact_paths: target/*.jar
     agents:
       queue: internal
+    env:
+      BUILDKITE_CLEAN_CHECKOUT=true
