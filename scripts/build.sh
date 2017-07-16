@@ -2,12 +2,12 @@
 
 BUILD_DIR=$(pwd)
 
-echo ""--- :s3: Seeding cache"
+echo "--- :s3: Seeding cache"
 
 mkdir -p ${BUILD_DIR}/cache
 aws s3 sync s3://dius-dev-build-cache/${BUILDKITE_PIPELINE_SLUG}/caches ${BUILD_DIR}/cache
 
-echo ""--- :hammer: Building app"
+echo "--- :hammer: Building app"
 
 docker run \
         -v ${BUILD_DIR}:/work \
@@ -16,7 +16,7 @@ docker run \
         openjdk:8 ./mvnw package
 RETURN_CODE=$?
 
-echo ""---  :s3: Syncing cache"
+echo "---  :s3: Syncing cache"
 aws s3 sync --delete ${BUILD_DIR}/cache s3://dius-dev-build-cache/${BUILDKITE_PIPELINE_SLUG}/caches 
 
 exit $RETURN_CODE
