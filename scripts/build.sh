@@ -13,7 +13,7 @@ docker run \
         -v ${BUILD_DIR}:/work \
         -v ${BUILD_DIR}/cache:/root/.m2 \
         -w /work \
-        openjdk:8 ./mvnw package
+        openjdk:8 ./mvnw clean package
 RETURN_CODE=$?
 
 echo "---  :s3: Syncing cache"
