@@ -5,4 +5,4 @@ steps:
     agents:
       queue: internal
     env:
-      BUILDKITE_CLEAN_CHECKOUT=true
+      BUILDKITE_CLEAN_CHECKOUT: true
