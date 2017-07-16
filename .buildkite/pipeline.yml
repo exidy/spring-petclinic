@@ -1,3 +1,6 @@
+env:
+  BUILDKITE_DOCKER_COMPOSE_CONTAINER: app
+
 steps:
   - label: ':hotsprings: compile jar'
     command: ./mvnw package
@@ -6,4 +9,3 @@ steps:
       queue: internal
     env:
       BUILDKITE_CLEAN_CHECKOUT: true
-      BUILDKITE_DOCKER_COMPOSE_CONTAINER: app
