@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 BUILD_DIR=$(pwd)
 
@@ -14,6 +14,9 @@ docker run \
         -v ${BUILD_DIR}/cache:/root/.m2 \
         -w /work \
         openjdk:8 ./mvnw package
+RETURN_CODE=$?
 
 echo ""---  :s3: Syncing cache"
 aws s3 sync --delete ${BUILD_DIR}/cache s3://dius-dev-build-cache/${BUILDKITE_PIPELINE_SLUG}/caches 
+
+exit $RETURN_CODE
