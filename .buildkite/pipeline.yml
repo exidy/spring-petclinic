@@ -1,0 +1,4 @@
+steps:
+  - label: ':hotsprings: compile jar'
+    command: 'scripts/build.sh'
+    artifact_paths: 'target/*.jar'
