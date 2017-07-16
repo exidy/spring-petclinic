@@ -4,4 +4,4 @@ services:
     build: .
     volumes:
       - .:/work
-      - ./cache:/root/.m2
+      
