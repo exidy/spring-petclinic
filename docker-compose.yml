@@ -4,11 +4,13 @@ services:
     build: .
     volumes:
       - .:/work
+    links:
+    - mysql
 
   mysql:
-  image: mysql
-  ports:
+    image: mysql
+    ports:
     - "3306:3306"
-  environment:
-    MYSQL_ROOT_PASSWORD: root
-    MYSQL_DATABASE: test
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=test
