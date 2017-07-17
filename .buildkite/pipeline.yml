@@ -2,6 +2,15 @@ env:
   BUILDKITE_DOCKER_COMPOSE_CONTAINER: app
 
 steps:
+  - label: ':hammer: compile jar'
+    command: ./mvnw test
+    agents:
+      queue: internal
+    env:
+      BUILDKITE_CLEAN_CHECKOUT: true
+
+  - wait
+
   - label: ':hotsprings: compile jar'
     command: ./mvnw package
     artifact_paths: target/*.jar
