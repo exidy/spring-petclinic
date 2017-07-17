@@ -2,7 +2,7 @@ env:
   BUILDKITE_DOCKER_COMPOSE_CONTAINER: app
 
 steps:
-  - label: ':hammer: compile jar'
+  - label: ':hammer: run tests'
     command: ./mvnw test
     agents:
       queue: internal
